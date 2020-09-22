@@ -7,5 +7,5 @@ docker run -d \
   --publish 443:443/tcp \
   --publish 443:443/udp \
   --volume /etc/letsencrypt:/etc/letsencrypt:ro \
-  ntkme/ocserv
+  rsartorio/ocserv
 ```
