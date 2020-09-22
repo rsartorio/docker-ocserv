@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   ocserv:
-    image: ntkme/ocserv
+    image: rsartorio/ocserv
     hostname: $HOSTNAME
     cap_add:
       - NET_ADMIN
@@ -14,11 +14,13 @@ services:
     depends_on:
       - certbot
   certbot:
-    image: ntkme/certbot
+    image: rsartorio/certbot
     hostname: $HOSTNAME
     ports:
       - "80:80/tcp"
     volumes:
       - "./etc/letsencrypt:/etc/letsencrypt"
+      - "./var/lib/letsencrypt:/var/lib/letsencrypt"
+      - "./var/log/letsencrypt:/var/log/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock"
     restart: always
